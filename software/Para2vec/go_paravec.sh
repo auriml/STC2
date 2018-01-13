@@ -1,6 +1,6 @@
 #!/bin/bash
 # SearchSnippets, StackOverflow, Biomedical
-dataset="SearchSnippets"
+dataset="Biomedical"
 rm alldata-id.txt
 rm vectors.txt
 if [ "$dataset" == "SearchSnippets" ]
@@ -19,7 +19,7 @@ else
 	echo "Current dataset is wrong!"${dataset}
 fi
 gcc word2vec.c -o word2vec -lm -pthread -O3 -march=native -funroll-loops
-time ./word2vec -train ./alldata-id.txt -output vectors.txt -cbow 0 -size 100 -window 10 -negative 5 -hs 0 -sample 1e-4 -threads 40 -binary 0 -iter 20 -min-count 1 -sentence-vectors 1
+time ./word2vec -train ./alldata-id.txt -output vectors.txt -cbow 0 -size 100 -window 10 -negative 5 -hs 0 -sample 1e-4 -threads 40 -binary 0 -iter 20 -min-count 1 -sentence-vectors 1 -classes 20
 if [ "$dataset" == "SearchSnippets" ]
 then
 	grep '_\*' vectors.txt > SearchSnippets_para2vecs.txt

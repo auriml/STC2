@@ -1,5 +1,5 @@
 clear; clc;
-dataset='SearchSnippets'; %SearchSnippets, StackOverflow, Biomedical
+dataset='Biomedical'; %SearchSnippets, StackOverflow, Biomedical
 method = 'SVM'; % SVM(Support Vector Machine)
 isKernel = 0; %1: SVM Gaussian Kernel; 0: SVM Linear Kernel.
 Weighting = 'TF'; %TF, TFIDF or AE(Average Embedding)
